@@ -1,0 +1,22 @@
+$main-font: 'Lato', sans-serif;
+$title-font: 'Montserrat', sans-serif;
+
+$duration: 0.3s;
+
+$green-dark: #004A2F;
+$grey-dark: #595959;
+
+
+$text-color: $grey-dark;
+$theme-color: $green-dark;
+
+$body-bg: #fff;
+
+$container-inner-width: 1320px;
+$container-padding-x: 24px;
+$container-padding-x-tablet: 16px;
+$container-padding-x-mobile: 16px;
+
+$container-max-width: calc(#{$container-inner-width} + 2*#{$container-padding-x});
+$tablet-max-width: 1023px;
+$mobile-max-width: 767px;

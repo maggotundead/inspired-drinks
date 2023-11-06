@@ -1,0 +1,112 @@
+.footer {
+    padding-top: 20px;
+    padding-bottom: 24px;
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr auto;
+        row-gap: 40px;
+        column-gap: 56px;
+    }
+    .menu-group {
+        max-width: 514px;
+        &:is(.contacts, .policies, .reports, .socials) {
+            max-width: 286px;
+        }
+        &.contacts {
+            grid-column: 1;
+        }
+        &.policies {
+            grid-column: 2;
+        }
+        &.reports {
+            grid-column: 1;
+        }
+        &.socials {
+            grid-column: 2;
+        }
+        &.subscribe {
+            grid-column: 3;
+            grid-row-start: 1;
+            grid-row-end: span 2;
+        }
+
+        &-title {
+            font-family: $title-font;
+            font-size: 24px;
+            font-weight: 700;
+            color: $theme-color;
+            text-transform: uppercase;
+        }
+        &-content {
+            margin-top: 8px;
+        }
+    }
+
+    ul {
+        list-style: none;
+    }
+    li {
+        &:not(:last-child) {
+            margin-bottom: 8px;
+        }
+        a {
+            position: relative;
+            @media (hover: hover) {
+                &:hover {
+                    &::before {
+                        transform: scaleX(100%);
+                    }
+                }
+            }
+            &::before {
+                content: '';
+                transform: scaleX(0);
+                position: absolute;
+                left: 0;
+                bottom: -3px;
+                width: 100%;
+                border-bottom: 1px solid currentColor;
+                transition: $duration;
+                transform-origin: left center;
+            }
+        }
+    }
+    span {
+        font-weight: 700;
+    }
+    address {
+        font-style: normal;
+        display: inline;
+    }
+    p {
+        line-height: 1.375;
+    }
+    .social-links {
+        display: flex;
+        a {
+            color: $theme-color;
+            &:not(:last-child) {
+                margin-right: 24px;
+            }
+        }
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+    .subscribe-form {
+        margin-top: 58px;
+        display: flex;
+        position: relative;
+        max-width: 336px;
+        input {
+            width: 100%;
+            padding-right: 120px;
+        }
+        button {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+}

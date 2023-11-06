@@ -1,0 +1,93 @@
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 48px;
+    border-radius: 16px;
+    color: $theme-color;
+    border: 1px solid $theme-color;
+    background-color: transparent;
+    padding-left: 24px;
+    padding-right: 24px;
+    min-width: 90px;
+    transition: $duration;
+    font-size: 16px;
+    font-weight: 400;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: $theme-color;
+            color: #fff;
+            box-shadow: 4px 4px 10px 0px rgba(0, 74, 47, 0.25);
+        }
+    }
+
+    &:disabled {
+        color: #ccc;
+        border-color: #ccc;
+        cursor: not-allowed;
+    }
+    &--filled {
+        background-color: $theme-color;
+        color: #fff;
+    }
+}
+
+.block-title {
+    font-size: 64px;
+    line-height: normal;
+    font-family: $title-font;
+    font-weight: 700;
+    color: $theme-color;
+    text-transform: uppercase;
+}
+
+.input-wrapper {
+    width: 100%;
+    position: relative;
+    label {
+        position: absolute;
+        top: 3px;
+        left: 16px;
+        color: $theme-color;
+    }
+}
+
+*:is(.input, .textarea) {
+    display: inline-flex;
+    border-radius: 16px;
+    color: $theme-color;
+    border: 1px solid $theme-color;
+    background-color: transparent;
+    padding-left: 16px;
+    padding-right: 16px;
+    transition: $duration;
+    font-size: 16px;
+    font-weight: 400;
+    width: 100%;
+    &:has(+ label) {
+        padding-top: 28px;
+        font-size: 12px;
+        color: $text-color;
+    }
+}
+.input {
+    height: 48px;
+}
+.textarea {
+    height: 140px;
+    resize: none;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    fill: none;
+    &:first-child {
+        margin-right: 8px;
+    }
+}

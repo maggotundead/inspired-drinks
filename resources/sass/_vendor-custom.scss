@@ -1,0 +1,43 @@
+.swiper {
+    &-container {
+        position: relative;
+        height: 100%;
+    }
+
+    // &-wrapper {}
+
+    &-button {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        background-color: $theme-color;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin: 0;
+        left: 0;
+        right: 0;
+        svg {
+            width: 20px;
+            height: 11px;
+        }
+        &::before,
+        &::after {
+            content: none;
+        }
+        &-disabled {
+            opacity: .5;
+        }
+    }
+
+
+    &-pagination {
+        &-bullet {
+            &-active {
+            }
+        }
+    }
+}
