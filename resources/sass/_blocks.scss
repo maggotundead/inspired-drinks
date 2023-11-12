@@ -26,12 +26,21 @@
         height: 100svh;
         min-height: 768px;
         max-height: 1080px;
+        @include mobile {
+            min-height: initial;
+            height: auto;
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
     }
     .text {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         max-width: 650px;
+        @include mobile {
+            align-items: center;
+        }
     }
     .logo {
         align-self: center;
@@ -46,6 +55,12 @@
         margin-top: 24px;
         font-size: 40px;
         line-height: 1;
+        @include tablet {
+            font-size: 32px;
+        }
+        @include mobile {
+            font-size: 24px;
+        }
     }
     .btn {
         margin-top: 24px;
@@ -55,16 +70,27 @@
 .block-text-cards-grid {
     padding-top: 64px;
     padding-bottom: 48px;
+    @include mobile {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
     .cards {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-gap: 2px;
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
     }
     .card-item {
         min-height: 176px;
         padding: 32px 24px;
         border-radius: 32px;
         background: rgba($theme-color, .3);
+        @include mobile {
+            border-radius: 24px;
+            min-height: initial;
+        }
         &-title {
             font-family: $title-font;
             font-size: 32px;
@@ -82,6 +108,11 @@
         min-height: 600px;
         padding-top: 56px;
         padding-bottom: 56px;
+        @include mobile {
+            min-height: initial;
+            padding-top: 0;
+            padding-bottom: 48px;
+        }
     }
 
     .container {
@@ -89,6 +120,10 @@
         align-items: center;
         // justify-content: space-evenly;
         justify-content: center;
+        @include mobile {
+            flex-direction: column;
+            align-items: center;
+        }
     }
     .banner-bg {
         position: absolute;
@@ -98,6 +133,10 @@
         right: 0;
         display: flex;
         align-items: center;
+        @include mobile {
+            bottom: initial;
+            height: 60vw;
+        }
         img {
             width: 100%;
             object-fit: contain;
@@ -109,11 +148,16 @@
         display: flex;
         flex-direction: column;
         margin-right: 104px;
+        @include mobile {
+            margin-right: 0;
+            max-width: 100%;
+        }
     }
     .logo {
         align-self: center;
         img {
             max-width: 320px;
+            width: 100%;
         }
     }
     .descr {
@@ -127,10 +171,19 @@
     .btns {
         margin-top: 40px;
         display: flex;
+        @include mobile {
+            margin-top: 32px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 12px;
+        }
     }
     .btn {
         &:not(:last-child) {
             margin-right: 32px;
+            @include mobile {
+                margin-right: 0;
+            }
         }
     }
     .video {
@@ -140,6 +193,11 @@
         border-radius: 32px;
         box-shadow: 8px 8px 32px 0px rgba(0, 0, 0, 0.25);
         align-self: center;
+        @include mobile {
+            margin-top: 32px;
+            max-width: 100%;
+            border-radius: 24px;
+        }
         video {
             // display: none;
             width: 100%;
@@ -152,8 +210,25 @@
 .block-contact-us {
     padding-top: 136px;
     padding-bottom: 76px;
+    @include responsive {
+        padding-top: 120px;
+        padding-bottom: 64px;
+    }
+    @include mobile {
+        padding-top: 80px;
+    }
     .container {
         display: flex;
+        @include tablet {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 32px;
+        }
+        @include mobile {
+            grid-template-columns: 1fr;
+            row-gap: 32px;
+            place-items: center;
+        }
     }
     .banner-bg {
         position: absolute;
@@ -163,16 +238,37 @@
         right: 0;
         display: flex;
         align-items: center;
+        @include mobile {
+            height: 60vw;
+            align-items: flex-start;
+            justify-content: center;
+        }
         img {
             width: 100%;
             object-fit: contain;
+            @include mobile {
+                max-width: 480px;
+            }
         }
     }
     .text-col {
+        width: 100%;
         max-width: 642px;
         padding-top: 148px;
         position: relative;
         margin-right: 90px;
+        @include responsive {
+            margin-right: 64px;
+            padding-top: 120px;
+        }
+        @include tablet {
+            padding-top: 80px;
+            max-width: 480px;
+            margin-right: 0;
+        }
+        @include mobile {
+            padding-top: 0;
+        }
     }
     .subtitle {
         margin-top: 40px;
@@ -180,6 +276,14 @@
         font-size: 40px;
         font-weight: 700;
         text-transform: uppercase;
+        @include tablet {
+            font-size: 32px;
+        }
+        @include mobile {
+            margin-top: 24px;
+            font-size: 24px;
+            text-align: center;
+        }
     }
     .contacts {
         margin-top: 40px;
@@ -205,6 +309,16 @@
         border-radius: 16px;
         padding: 72px 88px 56px;
         position: relative;
+        @include responsive {
+            padding: 64px 72px 56px;
+        }
+        @include tablet {
+            padding: 48px;
+        }
+        @include mobile {
+            padding: 32px 24px;
+            max-width: 480px;
+        }
         &-title {
             line-height: 1.375;
         }
@@ -214,22 +328,53 @@
     form {
         display: block;
         margin-top: 32px;
+        @include mobile {
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+        }
     }
 
     .input-wrapper {
         &:not(:last-of-type) {
             margin-bottom: 40px;
+            @include tablet {
+                margin-bottom: 32px;
+            }
+            @include mobile {
+                margin-bottom: 24px;
+            }
         }
     }
 
     .btn {
         margin-top: 56px;
+        @include tablet {
+            margin-top: 32px;
+        }
+        @include mobile {
+            margin-top: 24px;
+            margin-left: auto;
+            width: 50%;
+        }
     }
 }
 
 .block-product-welcome {
     padding-top: 256px;
     padding-bottom: 296px;
+    @include responsive {
+        padding-top: 196px;
+        padding-bottom: 256px;
+    }
+    @include tablet {
+        padding-top: 144px;
+        padding-bottom: 196px;
+    }
+    @include mobile {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
     .container {
         display: flex;
         flex-direction: column;
@@ -242,6 +387,9 @@
     }
     .block-title {
         margin-top: 40px;
+        @include mobile {
+            margin-top: 24px;
+        }
     }
     .descr {
         margin-top: 24px;
@@ -256,6 +404,9 @@
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
         grid-gap: 10px;
+        @include mobile {
+            grid-template-columns: minmax(0, 1fr);
+        }
     }
 
     .bottle-col {
@@ -267,6 +418,10 @@
         position: relative;
         img {
             max-height: 614px;
+            @include mobile {
+                // max-height: clamp(320px, 100vw, 480px);
+                max-height: 480px;
+            }
         }
         &-annotation {
             position: absolute;
@@ -311,6 +466,9 @@
         border-radius: 32px;
         background-color: rgba($theme-color, .2);
         position: relative;
+        @include mobile {
+            border-radius: 24px;
+        }
         &::before,
         &::after {
             content: '';
@@ -336,10 +494,17 @@
             z-index: 2;
             height: 700px;
             overflow: hidden;
+            @include mobile {
+                height: 480px;
+            }
         }
         &-slide {
             padding-left: 90px;
             padding-right: 40px;
+            @include mobile {
+                padding-left: 64px;
+                padding-right: 24px;
+            }
         }
         &-controls {
             position: absolute;
@@ -349,10 +514,16 @@
             z-index: 2;
             display: flex;
             flex-direction: column;
+            @include mobile {
+                left: 12px;
+            }
         }
         &-button {
             &-next {
                 margin-top: 16px;
+                @include mobile {
+                    margin-top: 12px;
+                }
             }
         }
     }
@@ -381,6 +552,12 @@
             font-size: 48px;
             font-weight: 700;
             color: $theme-color;
+            @include responsive {
+                font-size: 40px;
+            }
+            @include tablet {
+                font-size: 32px;
+            }
         }
         &-type {
             margin-top: 8px;
@@ -396,7 +573,9 @@
 .block-advantages-grid {
     padding-top: 95px;
     padding-bottom: 76px;
-
+    @include mobile {
+        padding-top: 80px;
+    }
     .advantages {
         margin: 0 auto;
         width: 100%;
@@ -406,18 +585,31 @@
         padding: 24px;
         border-radius: 32px;
         border: 1px solid rgba($theme-color, .3);
+        @include mobile {
+            grid-template-columns: 1fr;
+            border-radius: 24px;
+            padding: 24px 12px;
+        }
     }
     .advantage-item {
         display: flex;
         flex-direction: column;
         &:nth-child(1) {
             padding-bottom: 24px;
+            @include mobile {
+                padding-bottom: 12px;
+            }
         }
         &:nth-child(2) {
             padding-top: 24px;
             padding-right: 24px;
             grid-row: 2;
             border-top: 1px solid rgba($theme-color, .3);
+            @include mobile {
+                padding-right: 0;
+                padding-top: 24px;
+                padding-bottom: 24px;
+            }
         }
         &:nth-child(3) {
             padding-left: 24px;
@@ -425,6 +617,13 @@
             grid-row-end: span 2;
             border-left: 1px solid rgba($theme-color, .3);
             justify-content: center;
+            @include mobile {
+                padding-top: 24px;
+                padding-left: 0;
+                border-left: 0;
+                border-top: 1px solid rgba($theme-color, .3);
+                grid-row: initial;
+            }
 
         }
 
@@ -434,6 +633,9 @@
             font-size: 32px;
             font-weight: 500;
             color: $theme-color;
+            @include mobile {
+                margin-top: 16px;
+            }
         }
         &-descr {
             margin-top: 16px;
@@ -476,23 +678,632 @@
         padding-bottom: 200px;
         z-index: 2;
         color: #fff;
+        @include mobile {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
     }
     .block-title {
         color: #fff;
         writing-mode: vertical-rl;
         text-orientation: mixed;
         transform: rotate(180deg);
+        white-space: nowrap;
+        margin-right: 32px;
     }
     .subtitle {
         font-size: 40px;
         max-width: 536px;
+        @include tablet {
+            font-size: 32px;
+        }
+        @include mobile {
+            font-size: 24px;
+            max-width: 360px;
+        }
     }
+}
+
+.block-water-minerals {
+    // height: 300vh;
+    // height: 200vh;
+    // height: 100vh;
+    position: relative;
+    .scrollable-wrapper {
+        display: flex;
+        background: url('../img/sea-bottom-bg.png') center no-repeat;
+        background-size: cover;
+        height: 100vh;
+        height: 100svh;
+        min-height: 768px;
+        max-height: 1080px;
+        // overflow: hidden;
+        // position: sticky;
+        // top: 0;
+
+        &.stage-1 {
+            .product {
+                &-bottle {
+                    img {
+                        &:nth-child(1) {
+                            opacity: 1;
+                        }
+                        &:nth-child(2) {
+                            opacity: 0;
+                        }
+                        &:nth-child(3) {
+                            opacity: 0;
+                        }
+                    }
+                }
+                &-mineral {
+                    &:nth-child(4),
+                    &:nth-child(6),
+                    &:nth-child(8) {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        &.stage-2 {
+            .product {
+                &-bottle {
+                    img {
+                        &:nth-child(1) {
+                            opacity: 0;
+                        }
+                        &:nth-child(2) {
+                            opacity: 1;
+                        }
+                        &:nth-child(3) {
+                            opacity: 0;
+                        }
+                    }
+                }
+                &-mineral {
+                    &:nth-child(1),
+                    &:nth-child(3),
+                    &:nth-child(9) {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        &.stage-3 {
+            .product {
+                &-bottle {
+                    img {
+                        &:nth-child(1) {
+                            opacity: 0;
+                        }
+                        &:nth-child(2) {
+                            opacity: 0;
+                        }
+                        &:nth-child(3) {
+                            opacity: 1;
+                        }
+                    }
+                }
+                &-mineral {
+                    &:nth-child(2),
+                    &:nth-child(5),
+                    &:nth-child(7) {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    .scrollable-inner {
+        overflow: hidden;
+        width: 100%;
+    }
+    .container {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product {
+        position: relative;
+        &-circle {
+            width: 794px;
+            height: 795px;
+            background: transparent url('../img/dash-circle.svg') center no-repeat;
+            background-size: 100% 100%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            @include responsive {
+                // width: 58vw;
+                // height: 58vw;
+                width: 88vw;
+                height: 88vw;
+            }
+        }
+        &-bottle {
+            position: relative;
+            z-index: 3;
+            top: -30px;
+            width: 446px;
+            height: 793px;
+            @include responsive {
+                max-width: 32.6vw;
+                max-height: 58vw;
+            }
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                // max-width: 446px;
+                opacity: 0;
+                transition: $duration*2;
+                // &.hidden {
+                //     opacity: 0;
+                // }
+            }
+        }
+        &-mineral {
+            position: absolute;
+            text-align: center;
+            // opacity: 1;
+            pointer-events: none;
+            transition: $duration*2;
+            z-index: 2;
+            opacity: 0;
+            // &.hidden {
+            //     opacity: 0;
+            // }
+            &:nth-child(1) {
+                top: 68px;
+                right: calc(100% + 86px);
+                // transition-delay: .5s;
+                transition-delay: .4s;
+                @include responsive {
+                    top: 5vw;
+                    right: calc(100% + 6.28vw);
+                }
+                @include mobile {
+                    top: -40vw;
+                }
+                &::before {
+                    width: 290px;
+                    height: 164px;
+                    // background-image: url('../img/drop-mask-1.png');
+                }
+                .abbr {
+                    bottom: calc(100% + 31px);
+                    right: calc(100% + 2px);
+                    @include mobile {
+                        bottom: 100%;
+                        right: calc(100% - 10px);
+                    }
+                }
+            }
+            &:nth-child(2) {
+                top: 245px;
+                left: -16px;
+                // transition-delay: .45s;
+                transition-delay: .95s;
+                @include responsive {
+                    top: 18vw;
+                }
+                @include mobile {
+                    top: -18vw;
+                }
+                &::before {
+                    width: 272px;
+                    height: 154px;
+                    // background-image: url('../img/drop-mask-2.png');
+                }
+                .abbr {
+                    bottom: calc(100% + 17px);
+                    right: calc(100% + 14px);
+                    @include mobile {
+                        bottom: 100%;
+                        right: calc(100% - 10px);
+                    }
+                }
+            }
+            &:nth-child(3) {
+                top: 442px;
+                right: calc(100% + 267px);
+                // transition-delay: .7s;
+                transition-delay: 1.1s;
+                @include responsive {
+                    top: 32.3vw;
+                    right: calc(100% + 19.5vw);
+                }
+                @include mobile {
+                    top: 10vw;
+                    right: calc(100% + 12vw);
+                }
+                &::before {
+                    width: 290px;
+                    height: 164px;
+                    // background-image: url('../img/drop-mask-3.png');
+                }
+                .abbr {
+                    bottom: calc(100% + 30px);
+                    left: calc(100% + 20px);
+                    @include mobile {
+                        bottom: 100%;
+                        left: calc(100% - 10px);
+                    }
+                }
+            }
+            &:nth-child(4) {
+                top: 553px;
+                left: -27px;
+                transition-delay: .5s;
+                @include responsive {
+                    top: 40.4vw;
+                }
+                @include mobile {
+                    left: initial;
+                    right: calc(100% + 2vw);
+                }
+                &::before {
+                    width: 259px;
+                    height: 147px;
+                    // background-image: url('../img/drop-mask-4.png');
+                }
+                .abbr {
+                    bottom: calc(100% + 18px);
+                    right: calc(100% + 39px);
+                    @include mobile {
+                        bottom: 100%;
+                        right: calc(100% - 10px);
+                    }
+                }
+            }
+            &:nth-child(5) {
+                top: 700px;
+                right: calc(100% + 124px);
+                // transition-delay: .5s;
+                transition-delay: 1.2s;
+                @include responsive {
+                    top: 51vw;
+                    right: calc(100% + 9vw);
+                }
+                @include mobile {
+                    top: 72vw;
+                    right: calc(100% + 3vw);
+                }
+                &::before {
+                    width: 455px;
+                    height: 256px;
+                    // background-image: url('../img/drop-mask-5.png');
+                }
+                .abbr {
+                    bottom: calc(100% + 34px);
+                    right: calc(100% + 10px);
+                    @include mobile {
+                        bottom: 100%;
+                        right: 100%;
+                    }
+                }
+            }
+            &:nth-child(6) {
+                top: 85px;
+                left: calc(100% + 70px);
+                transition-delay: .9s;
+                @include responsive {
+                    top: 6.2vw;
+                    left: calc(100% + 5.1vw);
+                }
+                @include mobile {
+                    top: -38vw;
+                    left: 100%;
+                }
+                &::before {
+                    width: 455px;
+                    height: 256px;
+                    // background-image: url('../img/drop-mask-6.png');
+                }
+                .abbr {
+                    bottom: calc(100% + 48px);
+                    left: -49px;
+                    @include mobile {
+                        bottom: calc(100% + 10px);
+                        left: -30px;
+                    }
+                }
+            }
+            &:nth-child(7) {
+                top: 297px;
+                right: -8px;
+                // transition-delay: .65s;
+                transition-delay: 1.15s;
+                @include responsive {
+                    top: 21.7vw;
+                }
+                @include mobile {
+                    top: 5vw;
+                    right: initial;
+                    left: calc(100% + 5vw);
+                }
+                &::before {
+                    width: 249px;
+                    height: 140px;
+                    // background-image: url('../img/drop-mask-7.png');
+                }
+                .abbr {
+                    bottom: calc(100% + 5px);
+                    left: calc(100% + 20px);
+                    @include mobile {
+                        bottom: 100%;
+                        left: calc(100% - 10px);
+                    }
+                }
+            }
+            &:nth-child(8) {
+                top: 447px;
+                left: calc(100% + 50px);
+                transition-delay: .4s;
+                @include responsive {
+                    top: 32.7vw;
+                    left: calc(100% + 3.6vw);
+                }
+                &::before {
+                    width: 280px;
+                    height: 158px;
+                    // background-image: url('../img/drop-mask-8.png');
+                }
+                .abbr {
+                    top: calc(100% + 23px);
+                    right: calc(100% + 5px);
+                    @include mobile {
+                        top: calc(100% + 10px);
+                        right: calc(100% - 20px);
+                    }
+                }
+            }
+            &:nth-child(9) {
+                top: 726px;
+                left: calc(100% + 212px);
+                // transition-delay: .8s;
+                transition-delay: 1s;
+                @include responsive {
+                    top: 53vw;
+                    left: calc(100% + 15.5vw);
+                }
+                @include mobile {
+                    top: 72vw;
+                    left: calc(100% - 3vw);
+                }
+
+                &::before {
+                    width: 369px;
+                    height: 208px;
+                    // background-image: url('../img/drop-mask-9.png');
+                }
+                .abbr {
+                    bottom: calc(100% + 36px);
+                    right: calc(100% + 4px);
+                    @include mobile {
+                        bottom: calc(100% + 10px);
+                        right: calc(100% - 10px);
+                    }
+                }
+            }
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-image: url('../img/bubble.gif');
+                background-size: 100% 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-color: transparent;
+                @include responsive {
+                    transform: translate(-50%, -50%) scale(.8);
+                }
+            }
+
+            .abbr {
+                position: absolute;
+                background-color: $green-light;
+                color: #fefefe;
+                padding: 10px;
+                font-size: 14px;
+                font-weight: 700;
+                border-radius: 37px;
+                @include mobile {
+                    padding: 6px 8px;
+                    font-size: 12px;
+                }
+            }
+            .value {
+                font-size: 24px;
+                font-weight: 700;
+                color: $theme-color;
+                margin-bottom: 4px;
+                position: relative;
+                @include responsive {
+                    font-size: 22px;
+                }
+                @include mobile {
+                    font-size: 20px;
+                    margin-bottom: 2px;
+                }
+                &.big {
+                    margin-bottom: 8px;
+                    font-size: 36px;
+                    @include responsive {
+                        font-size: 32px;
+                    }
+                    @include mobile {
+                        font-size: 28px;
+                        margin-bottom: 4px;
+                    }
+                }
+            }
+            .title {
+                font-size: 16px;
+                position: relative;
+                @include mobile {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+.block-sustainable {
+    background: url('../img/sea-bottom-bg.png') center no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+
+    .marquee {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        // font-family: $title-font;
+        // font-size: 80px;
+        // font-weight: 700;
+        // color: $theme-color;
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        // text-transform: uppercase;
+        // -webkit-text-fill-color: transparent;
+        // -webkit-text-stroke-color: $theme-color;
+        // -webkit-text-stroke-width: 2.00px;
+        // color: transparent;
+        // span {
+        //     color: #fff;
+        //     text-shadow: 1px 1px 0 $theme-color,
+        //     -1px 1px 0 $theme-color,
+        //     1px -1px 0 $theme-color,
+        //     -1px -1px 0 $theme-color,
+        //     0px 1px 0 $theme-color,
+        //     0px -1px 0 $theme-color,
+        //     -1px 0px 0 $theme-color,
+        //     1px 0px 0 $theme-color,
+        //     2px 2px 0 $theme-color,
+        //     -2px 2px 0 $theme-color,
+        //     2px -2px 0 $theme-color,
+        //     -2px -2px 0 $theme-color,
+        //     0px 2px 0 $theme-color,
+        //     0px -2px 0 $theme-color,
+        //     -2px 0px 0 $theme-color,
+        //     2px 0px 0 $theme-color,
+        //     1px 2px 0 $theme-color,
+        //     -1px 2px 0 $theme-color,
+        //     1px -2px 0 $theme-color,
+        //     -1px -2px 0 $theme-color,
+        //     2px 1px 0 $theme-color,
+        //     -2px 1px 0 $theme-color,
+        //     2px -1px 0 $theme-color,
+        //     -2px -1px 0 $theme-color;
+        // }
+        svg {
+            display: inline;
+            &:nth-child(1) {
+                @include mobile {
+                    width: 413px;
+                    height: 31px;
+                }
+            }
+            &:nth-child(2) {
+                margin-left: 48px;
+                margin-right: 48px;
+                @include mobile {
+                    width: 23px;
+                    height: 23px;
+                    margin-left: 24px;
+                    margin-right: 24px;
+                    margin-bottom: 4px;
+                }
+            }
+        }
+    }
+
+    .container {
+        padding-top: 96px;
+        padding-bottom: 64px;
+        height: 100%;
+        height: 100vh;
+        height: 100svh;
+        min-height: 768px;
+        max-height: 1080px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include mobile {
+            padding-top: 48px;
+            padding-bottom: 48px;
+            min-height: 600px;
+            height: 150vw;
+            max-height: 800px;
+        }
+    }
+    .descr {
+        font-size: 40px;
+        max-width: 570px;
+        @include responsive {
+            font-size: 36px;
+        }
+        @include tablet {
+            font-size: 32px;
+        }
+        @include mobile {
+            font-size: 24px;
+        }
+        strong {
+            font-weight: 700;
+            color: $theme-color;
+        }
+    }
+    .bottle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        img {
+            max-width: 727px;
+            @include responsive {
+                max-width: 53vw;
+            }
+        }
+    }
+    .recycled {
+        margin-top: auto;
+        margin-left: auto;
+        img {
+            max-width: 234px;
+            @include responsive {
+                max-width: 17vw;
+            }
+        }
+    }
+
 }
 
 .block-text-summary-bg {
     padding-top: 88px;
     padding-bottom: 88px;
     position: relative;
+    overflow: hidden;
+    @include tablet {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    @include mobile {
+        padding-top: 48px;
+        padding-bottom: 48px;
+    }
     &:last-child {
         margin-bottom: 44px;
     }
@@ -524,18 +1335,50 @@
         display: flex;
         padding: 76px;
         justify-content: space-between;
+        @include responsive {
+            padding: 64px;
+        }
+        @include tablet {
+            padding: 48px;
+        }
+        @include mobile {
+            border-radius: 24px;
+            padding: 32px 12px;
+            flex-direction: column-reverse;
+            align-items: center;
+        }
         &-figure {
             transform: rotate(-19.924deg);
+            max-width: 50%;
+            @include responsive {
+                flex-shrink: 1;
+                flex-grow: 0;
+            }
+            @include mobile {
+                max-width: 100%;
+                margin-bottom: -32px;
+                margin-left: -40px;
+            }
         }
         &-text {
             max-width: 595px;
             flex-shrink: 0;
+            @include responsive {
+                flex-shrink: 1;
+            }
         }
         &-title {
             // font-family: $title-font;
             font-size: 40px;
             font-weight: 700;
             color: $theme-color;
+            @include tablet {
+                font-size: 36px;
+            }
+            @include mobile {
+                font-size: 32px;
+                text-align: center;
+            }
         }
         &-descr {
             margin-top: 24px;

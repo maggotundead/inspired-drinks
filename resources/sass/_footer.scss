@@ -6,28 +6,67 @@
         grid-template-columns: 1fr 1fr auto;
         row-gap: 40px;
         column-gap: 56px;
+        @include responsive {
+            column-gap: 40px;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        @include tablet {
+            grid-template-columns: 1fr 1fr;
+            row-gap: 32px;
+            column-gap: 32px;
+        }
+        @include mobile {
+            grid-template-columns: 1fr;
+        }
     }
     .menu-group {
         max-width: 514px;
+        @include responsive {
+            max-width: initial;
+        }
+
         &:is(.contacts, .policies, .reports, .socials) {
             max-width: 286px;
+            @include responsive {
+                max-width: initial;
+            }
         }
         &.contacts {
             grid-column: 1;
+            @include tablet {
+                grid-column: initial;
+            }
         }
         &.policies {
             grid-column: 2;
+            @include tablet {
+                grid-column: initial;
+            }
         }
         &.reports {
             grid-column: 1;
+            @include tablet {
+                grid-column: initial;
+            }
         }
         &.socials {
             grid-column: 2;
+            @include tablet {
+                grid-column: initial;
+            }
         }
         &.subscribe {
             grid-column: 3;
             grid-row-start: 1;
             grid-row-end: span 2;
+            @include tablet {
+                grid-column: span 2;
+                grid-row: initial;
+            }
+            @include mobile {
+                grid-column: initial;
+                grid-row: 1;
+            }
         }
 
         &-title {
@@ -36,6 +75,9 @@
             font-weight: 700;
             color: $theme-color;
             text-transform: uppercase;
+            @include mobile {
+                font-size: 20px;
+            }
         }
         &-content {
             margin-top: 8px;
@@ -99,6 +141,12 @@
         display: flex;
         position: relative;
         max-width: 336px;
+        @include tablet {
+            max-width: 100%;
+        }
+        @include mobile {
+            margin-top: 32px;
+        }
         input {
             width: 100%;
             padding-right: 120px;
