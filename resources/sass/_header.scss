@@ -85,7 +85,7 @@
         align-items: center;
     }
 
-    a:not(.btn) {
+    a:not(:is(.logo, .btn)) {
         // color: $theme-color;
         color: currentColor;
         position: relative;

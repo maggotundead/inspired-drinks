@@ -418,6 +418,8 @@
         position: relative;
         img {
             max-height: 614px;
+            position: relative;
+            z-index: 2;
             @include mobile {
                 // max-height: clamp(320px, 100vw, 480px);
                 max-height: 480px;
@@ -427,26 +429,79 @@
             position: absolute;
             display: flex;
             align-items: center;
+            cursor: pointer;
+            @media (hover: hover) {
+                &:hover {
+                    &::before {
+                        opacity: 1;
+                    }
+                    .bottle-annotation-title {
+                        opacity: 0;
+                    }
+                    .bottle-annotation-descr {
+                        opacity: 1;
+                    }
+                }
+            }
             &:nth-child(2) {
                 top: 67px;
                 // right: 100%;
                 right: calc(100% - 20px);
+                &::before {
+                    transform: rotate(51deg);
+                    left: calc(100% - 8px);
+                }
+                .bottle-annotation-descr {
+                    right: 16px;
+                }
             }
             &:nth-child(3) {
                 top: 29px;
                 // left: 100%;
                 left: calc(100% - 46px);
+                &::before {
+                    transform: rotate(-51deg);
+                    right: calc(100% - 8px);
+                }
+                .bottle-annotation-descr {
+                    left: 16px;
+                }
             }
             &:nth-child(4) {
                 top: 307px;
                 // right: 100%;
                 right: calc(100% - 20px);
+                &::before {
+                    transform: rotate(51deg);
+                    left: calc(100% - 8px);
+                }
+                .bottle-annotation-descr {
+                    right: 16px;
+                }
             }
             &:nth-child(5) {
                 top: 393px;
                 // left: 100%;
                 left: calc(100% - 30px);
+                &::before {
+                    transform: rotate(-51deg);
+                    right: calc(100% - 8px);
+                }
+                .bottle-annotation-descr {
+                    left: 16px;
+                }
             }
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                width: 40px;
+                opacity: 0;
+                border-bottom: 1px solid rgba($theme-color, .3);
+                transition: $duration;
+            }
+
             svg {
                 width: 16px;
                 height: 24px;
@@ -454,8 +509,39 @@
                 &:nth-child(1) {
                     margin-right: 8px;
                 }
-                &:nth-child(2) {
+                &:nth-child(3) {
                     margin-left: 8px;
+                }
+            }
+
+            &-title {
+                transition: $duration;
+                font-weight: 400;
+                font-size: 24px;
+                font-family: $title-font;
+                line-height: .91667;
+                @include tablet {
+                    font-size: 16px;
+                }
+            }
+            &-descr {
+                position: absolute;
+                padding-bottom: 8px;
+                bottom: 12px;
+                border-bottom: 1px solid rgba($theme-color, .3);
+                width: 214px;
+                font-size: 14px;
+                opacity: 0;
+                transition: $duration;
+                @include maxw1280 {
+                    width: 140px;
+                }
+                @include tablet {
+                    font-size: 10px;
+                    width: 80px;
+                }
+                @include mobile {
+                    width: 90px;
                 }
             }
         }
@@ -552,6 +638,9 @@
             font-size: 48px;
             font-weight: 700;
             color: $theme-color;
+            &.disabled {
+                color: $text-color;
+            }
             @include responsive {
                 font-size: 40px;
             }
@@ -674,8 +763,10 @@
         height: 100svh;
         min-height: 768px;
         max-height: 1080px;
-        padding-top: 200px;
-        padding-bottom: 200px;
+        // padding-top: 200px;
+        padding-top: 144px;
+        // padding-bottom: 200px;
+        padding-bottom: 144px;
         z-index: 2;
         color: #fff;
         @include mobile {
@@ -831,9 +922,13 @@
             top: -30px;
             width: 446px;
             height: 793px;
+            @media (max-height: 900px) {
+                max-height: 700px;
+            }
             @include responsive {
                 max-width: 32.6vw;
-                max-height: 58vw;
+                // max-height: 58vw;
+                height: 58vw;
             }
             img {
                 position: absolute;
@@ -843,6 +938,14 @@
                 // max-width: 446px;
                 opacity: 0;
                 transition: $duration*2;
+                max-height: 100%;
+                object-fit: contain;
+                &:nth-child(2) {
+                    transition-delay: .2s;
+                }
+                &:nth-child(3) {
+                    transition-delay: .4s;
+                }
                 // &.hidden {
                 //     opacity: 0;
                 // }
@@ -853,7 +956,7 @@
             text-align: center;
             // opacity: 1;
             pointer-events: none;
-            transition: $duration*2;
+            transition: $duration*3;
             z-index: 2;
             opacity: 0;
             // &.hidden {
@@ -889,9 +992,15 @@
                 top: 245px;
                 left: -16px;
                 // transition-delay: .45s;
-                transition-delay: .95s;
+                transition-delay: .5s;
+                @media (max-height: 900px) {
+                    top: 200px;
+                }
                 @include responsive {
                     top: 18vw;
+                    @media (max-height: 900px) {
+                        top: 15vw;
+                    }
                 }
                 @include mobile {
                     top: -18vw;
@@ -915,9 +1024,15 @@
                 right: calc(100% + 267px);
                 // transition-delay: .7s;
                 transition-delay: 1.1s;
+                @media (max-height: 900px) {
+                    top: 350px;
+                }
                 @include responsive {
                     top: 32.3vw;
                     right: calc(100% + 19.5vw);
+                    @media (max-height: 900px) {
+                        top: 28vw;
+                    }
                 }
                 @include mobile {
                     top: 10vw;
@@ -941,8 +1056,14 @@
                 top: 553px;
                 left: -27px;
                 transition-delay: .5s;
+                @media (max-height: 900px) {
+                    top: 420px;
+                }
                 @include responsive {
                     top: 40.4vw;
+                    @media (max-height: 900px) {
+                        top: 35vw;
+                    }
                 }
                 @include mobile {
                     left: initial;
@@ -967,6 +1088,9 @@
                 right: calc(100% + 124px);
                 // transition-delay: .5s;
                 transition-delay: 1.2s;
+                @media (max-height: 900px) {
+                    top: 550px;
+                }
                 @include responsive {
                     top: 51vw;
                     right: calc(100% + 9vw);
@@ -1019,9 +1143,15 @@
                 top: 297px;
                 right: -8px;
                 // transition-delay: .65s;
-                transition-delay: 1.15s;
+                transition-delay: 1.8s;
+                @media (max-height: 900px) {
+                    top: 250px;
+                }
                 @include responsive {
                     top: 21.7vw;
+                    @media (max-height: 900px) {
+                        top: 18vw;
+                    }
                 }
                 @include mobile {
                     top: 5vw;
@@ -1046,9 +1176,15 @@
                 top: 447px;
                 left: calc(100% + 50px);
                 transition-delay: .4s;
+                @media (max-height: 900px) {
+                    top: 350px;
+                }
                 @include responsive {
                     top: 32.7vw;
                     left: calc(100% + 3.6vw);
+                    @media (max-height: 900px) {
+                        top: 26vw;
+                    }
                 }
                 &::before {
                     width: 280px;
@@ -1068,10 +1204,16 @@
                 top: 726px;
                 left: calc(100% + 212px);
                 // transition-delay: .8s;
-                transition-delay: 1s;
+                transition-delay: 2s;
+                @media (max-height: 900px) {
+                    top: 620px;
+                }
                 @include responsive {
                     top: 53vw;
                     left: calc(100% + 15.5vw);
+                    @media (max-height: 900px) {
+                        top: 44vw;
+                    }
                 }
                 @include mobile {
                     top: 72vw;

@@ -11,6 +11,7 @@ if (blockProduct) {
         direction: 'vertical',
         loop: false,
         effect: 'slide',
+        speed: 800,
         navigation: {
             prevEl: '.swiper-button-prev',
             nextEl: '.swiper-button-next',
@@ -59,14 +60,26 @@ if (blockMinerals) {
     if (st > lastScrollTop) {
       // console.log('down');
 
-      if ( st > blockOffsetTop - visualInitialOffset ) {
+      // if ( st > blockOffsetTop - visualInitialOffset ) {
+      //   !scrollableWrapper.classList.contains('stage-1') && scrollableWrapper.classList.add('stage-1');
+      // }
+      // if ( st > blockOffsetTop - visualOffset) {
+      //   !scrollableWrapper.classList.contains('stage-2') && scrollableWrapper.classList.add('stage-2');
+      // }
+      // if ( st > blockOffsetTop ) {
+      //   !scrollableWrapper.classList.contains('stage-3') && scrollableWrapper.classList.add('stage-3');
+      // }
+
+      if ( st > blockOffsetTop - visualOffset ) {
         !scrollableWrapper.classList.contains('stage-1') && scrollableWrapper.classList.add('stage-1');
-      }
-      if ( st > blockOffsetTop - visualOffset) {
-        !scrollableWrapper.classList.contains('stage-2') && scrollableWrapper.classList.add('stage-2');
-      }
-      if ( st > blockOffsetTop ) {
-        !scrollableWrapper.classList.contains('stage-3') && scrollableWrapper.classList.add('stage-3');
+
+        setTimeout(() => {
+          !scrollableWrapper.classList.contains('stage-2') && scrollableWrapper.classList.add('stage-2');
+        }, 2000);
+
+        setTimeout(() => {
+          !scrollableWrapper.classList.contains('stage-3') && scrollableWrapper.classList.add('stage-3');
+        }, 4000);
       }
     }
     // else if (st < lastScrollTop) {
