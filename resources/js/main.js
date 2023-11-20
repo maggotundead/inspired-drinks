@@ -75,11 +75,11 @@ if (blockMinerals) {
 
         setTimeout(() => {
           !scrollableWrapper.classList.contains('stage-2') && scrollableWrapper.classList.add('stage-2');
-        }, 2000);
+        }, 1000);
 
         setTimeout(() => {
           !scrollableWrapper.classList.contains('stage-3') && scrollableWrapper.classList.add('stage-3');
-        }, 4000);
+        }, 2000);
       }
     }
     // else if (st < lastScrollTop) {
