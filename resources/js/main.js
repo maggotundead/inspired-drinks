@@ -166,3 +166,37 @@ document.querySelectorAll('.modal-overlay').forEach(btn => {
     });
   });
 });
+
+// welcome video
+const responsiveVideo =  document.querySelectorAll('.responsive-video');
+if (responsiveVideo) {
+  function addSourceToVideo(element, src) {
+      let source = document.createElement('source');
+      source.src = src;
+      source.type = 'video/mp4';
+      console.log(src);
+      element.appendChild(source);
+
+  }
+
+  function whichSizeVideo(element, src) {
+    var windowWidth = window.innerWidth ? window.innerWidth : $(window).width();
+    if (windowWidth > 767 ) {
+      addSourceToVideo( element, src.dataset.desktopVid);
+    } else {
+      addSourceToVideo(element, src.dataset.mobileVid);
+    }
+  }
+
+  function videoSize() {
+    if (responsiveVideo !== undefined) {
+      responsiveVideo.forEach(function(element, index) {
+        whichSizeVideo(
+          element, //element
+          element  //src locations
+        );
+      });
+    }
+  }
+  videoSize();
+}

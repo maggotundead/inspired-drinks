@@ -74,10 +74,15 @@
 			<main class="main">
 
 				<section class="block-welcome">
-					<video class="video-bg" autoplay="true" muted="true" playsinline="true">
-						<source src="video/home-welcome-mobile.mp4" type="video/mp4" media="screen and (max-device-width: 767px)"/>
-						<source src="video/home-welcome.mp4" type="video/mp4" media="screen and (min-device-width: 768px)"/>
-					</video>
+					<video
+						class="video-bg responsive-video"
+						autoplay="true"
+						muted="true"
+						playsinline="true"
+						preload="auto"
+						data-desktop-vid="video/home-welcome.mp4"
+						data-mobile-vid="video/home-welcome-mobile.mp4"
+					></video>
 					<div class="container">
 						<div class="text">
 							<div class="logo">
@@ -187,7 +192,7 @@
 						<div class="menu-group-content">
 							<ul>
 								<li>
-									<a href="tc.html">T&C’s</a>
+									<a download href="docs/terms-conditions.pdf">T&C’s</a>
 								</li>
 								<li>
 									<a href="privacy-policy.html">Privacy Policy</a>
