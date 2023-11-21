@@ -430,7 +430,9 @@
             display: flex;
             align-items: center;
             cursor: pointer;
-            @media (hover: hover) {
+            z-index: 2;
+
+            // @media (hover: hover) {
                 &:hover {
                     &::before {
                         opacity: 1;
@@ -442,11 +444,16 @@
                         opacity: 1;
                     }
                 }
-            }
+            // }
+
             &:nth-child(2) {
                 top: 67px;
                 // right: 100%;
-                right: calc(100% - 20px);
+                // right: calc(100% - 20px);
+                right: calc(100% - 75px);
+                @include mobile {
+                    right: calc(100% - 60px);
+                }
                 &::before {
                     transform: rotate(51deg);
                     left: calc(100% - 8px);
@@ -458,7 +465,11 @@
             &:nth-child(3) {
                 top: 29px;
                 // left: 100%;
-                left: calc(100% - 46px);
+                // left: calc(100% - 46px);
+                left: calc(100% - 100px);
+                @include mobile {
+                    left: calc(100% - 80px);
+                }
                 &::before {
                     transform: rotate(-51deg);
                     right: calc(100% - 8px);
@@ -470,7 +481,11 @@
             &:nth-child(4) {
                 top: 307px;
                 // right: 100%;
-                right: calc(100% - 20px);
+                // right: calc(100% - 20px);
+                right: calc(100% - 75px);
+                @include mobile {
+                    right: calc(100% - 60px);
+                }
                 &::before {
                     transform: rotate(51deg);
                     left: calc(100% - 8px);
@@ -482,7 +497,11 @@
             &:nth-child(5) {
                 top: 393px;
                 // left: 100%;
-                left: calc(100% - 30px);
+                // left: calc(100% - 30px);
+                left: calc(100% - 75px);
+                @include mobile {
+                    left: calc(100% - 60px);
+                }
                 &::before {
                     transform: rotate(-51deg);
                     right: calc(100% - 8px);
@@ -1423,6 +1442,8 @@
         z-index: 2;
         img {
             max-width: 727px;
+            max-height: 614px;
+            transform: rotate(12deg);
             @include responsive {
                 max-width: 53vw;
             }
@@ -1547,6 +1568,10 @@
     }
     .doc-content {
         max-width: 768px;
+    }
+    a {
+        text-decoration: underline;
+        color: $theme-color;
     }
     ol{margin:0;padding:0}
     table td,table th{padding:0}
