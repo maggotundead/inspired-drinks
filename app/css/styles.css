@@ -1145,7 +1145,8 @@ video {
         height: auto;
         padding-top: 80px;
         padding-bottom: 80px;
-        background: rgba(255, 255, 255, 0.5); } }
+        background: rgba(255, 255, 255, 0.5);
+        min-height: 179vw; } }
   .block-welcome .text {
     display: flex;
     flex-direction: column;
